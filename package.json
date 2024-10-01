@@ -1,0 +1,20 @@
+{
+  "name": "scna",
+  "version": "1.0.0",
+  "description": "Smart Campus Navigator App hello",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anastasia67/SCNA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anastasia67/SCNA/issues"
+  },
+  "homepage": "https://github.com/Anastasia67/SCNA#readme"
+}
