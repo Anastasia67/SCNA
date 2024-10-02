@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     paddingBottom: 80,
   },
   logo: {
-    width: 100, // Pas de breedte van de afbeelding aan
-    height: 100, // Pas de hoogte van de afbeelding aan
+    width: 100,
+    height: 100,
     resizeMode: "contain", // Zorgt ervoor dat de afbeelding in de gegeven afmetingen past
     marginBottom: 20, // Ruimte tussen logo en tekst
   },
