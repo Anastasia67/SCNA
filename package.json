@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Anastasia67/SCNA/issues"
   },
-  "homepage": "https://github.com/Anastasia67/SCNA#readme"
+  "homepage": "https://github.com/Anastasia67/SCNA#readme",
+  "dependencies": {
+    "react-native-msal": "^4.0.4"
+  }
 }

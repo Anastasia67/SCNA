@@ -1,8 +1,8 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "./HomeScreen"; // Importeer de voorpagina component
-import LoginScreen from "./LoginScreen"; // Zorg ervoor dat je deze import hebt
+import HomeScreen from "./HomeScreen"; 
+import LoginScreen from "./LoginScreen"; 
 
 const Stack = createNativeStackNavigator();
 
