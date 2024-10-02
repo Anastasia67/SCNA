@@ -1,34 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View, Button, Platform } from "react-native";
+import { StyleSheet, Text, TextInput, View, Button, Alert, Platform } from "react-native";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-  
-      if (!response.ok) {
-        throw new Error("Login failed");
-      }
-  
-      const data = await response.json();
-      console.log("Login successful", data);
-    } catch (error) {
-      console.error("Error during login:", error);
-      if (Platform.OS === "web") {
-        window.alert("Login Error: " + error.message);
-      } else {
-        Alert.alert("Login Error", error.message);
-      }
-    }
+  const handleLogin = () => {
+    console.log("Login successful");
+    navigation.navigate("Map");
   };
 
   return (
@@ -68,3 +47,35 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
+
+
+/*
+const handleLogin = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Login failed");
+    }
+
+    const data = await response.json();
+    console.log("Login successful", data);
+
+    navigation.navigate("Map");
+
+  } catch (error) {
+    console.error("Error during login:", error);
+    if (Platform.OS === "web") {
+      window.alert("Login Error: " + error.message);
+    } else {
+      Alert.alert("Login Error", error.message);
+    }
+  }
+};
+*/
