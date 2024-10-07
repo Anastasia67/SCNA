@@ -14,7 +14,7 @@ const NavigationBar = () => {
     <View style={styles.navigationBar}>
       <TouchableOpacity
         style={styles.navItem}
-        onPress={() => handlePress("BezoekerRoutes")}
+        onPress={() => handlePress("BezoekerRoute")}
       >
         <Image source={require("./assets/Route.png")} style={styles.logo} />
         <Text style={styles.navText}>Routes</Text>
