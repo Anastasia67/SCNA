@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View, Button, Alert, Platform } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Button,
+  Alert,
+  Platform,
+} from "react-native";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -48,8 +56,7 @@ const styles = StyleSheet.create({
 
 export default LoginScreen;
 
-
-/*
+/* Dit is voor de echte login niet weghalen!!
 const handleLogin = async () => {
   try {
     const response = await fetch("http://localhost:5000/login", {
