@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
-const RouteScreen = () => {
+const BezoekerRouteScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Route Screen</Text>
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RouteScreen;
+export default BezoekerRouteScreen;

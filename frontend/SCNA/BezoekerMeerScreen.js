@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
-const MeerScreen = () => {
+const BezoekerMeerScreen = () => {
   // Functie om actie uit te voeren wanneer op een menu-item wordt geklikt
   const handleMenuPress = (item) => {
     console.log(`${item} pressed`); // Hier kun je navigatie of andere acties toevoegen
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MeerScreen;
+export default BezoekerMeerScreen;
