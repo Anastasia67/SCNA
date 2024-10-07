@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 const MapScreen = () => {
   return (
@@ -9,6 +9,31 @@ const MapScreen = () => {
         Here, you can explore the campus and find directions to your classes and
         important facilities.
       </Text>
+
+      {/* navigatiebalk */}
+      <View style={styles.navigationBar}>
+        <View style={styles.navItem}>
+          <Image
+            source={require("./assets/logo-background.png")} // Zorg ervoor dat het juiste weg naar de afbeelding er is
+            style={styles.logo}
+          />
+          <Text style={styles.navText}>Routes</Text>
+        </View>
+        <View style={styles.navItem}>
+          <Image
+            source={require("./assets/logo-background.png")} // Zorg ervoor dat het juiste weg naar de afbeelding er is
+            style={styles.logo}
+          />
+          <Text style={styles.navText}>Map</Text>
+        </View>
+        <View style={styles.navItem}>
+          <Image
+            source={require("./assets/logo-background.png")} // Zorg ervoor dat het juiste weg naar de afbeelding er is
+            style={styles.logo}
+          />
+          <Text style={styles.navText}>Meer</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -31,6 +56,32 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: "center",
     color: "#333",
+  },
+  navigationBar: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 90, // hoogte van de balk
+    backgroundColor: "#71B682",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  navItem: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  navText: {
+    color: "#black",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  logo: {
+    width: 42,
+    height: 42,
+    resizeMode: "contain", // zorgt ervoor dat de afbeelding in de gegeven afmetingen past
+    marginBottom: 2, // ruimte tussen logo en tekst
   },
 });
 
