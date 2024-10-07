@@ -1,23 +1,41 @@
 // NavigationBar.js
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-const NavigationBar = () => (
-  <View style={styles.navigationBar}>
-    <View style={styles.navItem}>
-      <Image source={require("./assets/Route.png")} style={styles.logo} />
-      <Text style={styles.navText}>Routes</Text>
+const NavigationBar = () => {
+  const navigation = useNavigation();
+
+  const handlePress = (route) => {
+    navigation.navigate(route);
+  };
+
+  return (
+    <View style={styles.navigationBar}>
+      <TouchableOpacity
+        style={styles.navItem}
+        onPress={() => handlePress("BezoekerRoutes")}
+      >
+        <Image source={require("./assets/Route.png")} style={styles.logo} />
+        <Text style={styles.navText}>Routes</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.navItem}
+        onPress={() => handlePress("BezoekerMap")}
+      >
+        <Image source={require("./assets/Map.png")} style={styles.logo} />
+        <Text style={styles.navText}>Map</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.navItem}
+        onPress={() => handlePress("BezoekerMeer")}
+      >
+        <Image source={require("./assets/Meer.png")} style={styles.logo} />
+        <Text style={styles.navText}>Meer</Text>
+      </TouchableOpacity>
     </View>
-    <View style={styles.navItem}>
-      <Image source={require("./assets/Map.png")} style={styles.logo} />
-      <Text style={styles.navText}>Map</Text>
-    </View>
-    <View style={styles.navItem}>
-      <Image source={require("./assets/Meer.png")} style={styles.logo} />
-      <Text style={styles.navText}>Meer</Text>
-    </View>
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   navigationBar: {

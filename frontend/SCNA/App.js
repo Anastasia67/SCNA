@@ -5,6 +5,8 @@ import HomeScreen from "./HomeScreen";
 import LoginScreen from "./LoginScreen";
 import MapScreen from "./MapScreen";
 import BezoekerMapScreen from "./BezoekerMapScreen";
+import MeerScreen from "./BezoekerMeerScreen";
+import RouteScreen from "./BezoekerRouteScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +40,21 @@ export default function App() {
           name="LoginBezoeker"
           component={BezoekerMapScreen}
           options={{ title: "Map" }}
+        />
+        <Stack.Screen
+          name="BezoekerMap"
+          component={BezoekerMapScreen}
+          options={{ title: "Map" }}
+        />
+        <Stack.Screen
+          name="BezoekerMeer"
+          component={MeerScreen}
+          options={{ title: "Meer" }}
+        />
+        <Stack.Screen
+          name="BezoekerRoute"
+          component={RouteScreen}
+          options={{ title: "Route" }}
         />
         <Stack.Screen
           name="Map"
