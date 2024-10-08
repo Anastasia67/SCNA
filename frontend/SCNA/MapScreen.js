@@ -1,3 +1,4 @@
+//MapScreen.js
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
@@ -6,7 +7,8 @@ const MapScreen = () => {
     <View style={styles.container}>
       <Text style={styles.headerText}>Map Screen</Text>
       <Text style={styles.bodyText}>
-        Here, you can explore the campus and find directions to your classes and important facilities.
+        Here, you can explore the campus and find directions to your classes and
+        important facilities.
       </Text>
     </View>
   );

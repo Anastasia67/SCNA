@@ -1,3 +1,4 @@
+//HomeSreen.js
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 
@@ -6,7 +7,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Image
-          source={require("./assets/logo-background.png")} // Zorg ervoor dat het juiste pad naar de afbeelding er is
+          source={require("./assets/logo-background.png")} // Zorg ervoor dat het juiste weg naar de afbeelding er is
           style={styles.logo}
         />
         <Text style={styles.welcomeText}>
@@ -25,7 +26,7 @@ const HomeScreen = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.bezoekerButton}
-          onPress={() => alert("Deze functie is nog niet beschikbaar")}
+          onPress={() => navigation.navigate("BezoekerMap")}
         >
           <Text style={styles.buttonText}>Ga verder als een bezoeker</Text>
         </TouchableOpacity>
