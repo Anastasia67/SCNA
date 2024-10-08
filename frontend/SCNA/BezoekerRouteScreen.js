@@ -49,6 +49,15 @@ const BezoekerRouteScreen = ({ navigation }) => {
           <Picker.Item label="Gebouw A" value="gebouwA" />
           <Picker.Item label="Gebouw B" value="gebouwB" />
           <Picker.Item label="Gebouw C" value="gebouwC" />
+          <Picker.Item label="Gebouw D" value="gebouwD" />
+          <Picker.Item label="Gebouw E" value="gebouwE" />
+          <Picker.Item label="Gebouw F" value="gebouwF" />
+          <Picker.Item label="Gebouw G" value="gebouwG" />
+          <Picker.Item label="Gebouw H" value="gebouwH" />
+          <Picker.Item label="Gebouw S" value="gebouwS" />
+          <Picker.Item label="Gebouw T" value="gebouwT" />
+          <Picker.Item label="Gebouw X" value="gebouwX" />
+          <Picker.Item label="Gebouw Z" value="gebouwZ" />
         </Picker>
       </View>
 
