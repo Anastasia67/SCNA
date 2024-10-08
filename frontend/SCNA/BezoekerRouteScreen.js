@@ -12,7 +12,6 @@ import { Picker } from "@react-native-picker/picker"; // dropdown
 import NavigationBar from "./NavigatieBar";
 
 const BezoekerRouteScreen = ({ navigation }) => {
-  // Zorg ervoor dat navigation prop is toegevoegd
   const [selectedBuilding, setSelectedBuilding] = useState("");
 
   return (
@@ -75,7 +74,7 @@ const BezoekerRouteScreen = ({ navigation }) => {
 
       <TouchableOpacity
         style={styles.routeButton}
-        onPress={() => navigation.navigate("RouteScreen")} // Vervang "RouteScreen" door het daadwerkelijke scherm waar je naartoe wilt navigeren
+        onPress={() => navigation.navigate("RouteScreen")} // Vervang "RouteScreen" voor echte navigatie
       >
         <Text style={styles.buttonText}>Route Maken</Text>
       </TouchableOpacity>
