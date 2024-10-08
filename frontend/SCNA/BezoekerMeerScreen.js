@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
 const BezoekerMeerScreen = () => {
-  // Functie om actie uit te voeren wanneer op een menu-item wordt geklikt
   const handleMenuPress = (item) => {
     console.log(`${item} pressed`); // Hier kun je navigatie of andere acties toevoegen
   };

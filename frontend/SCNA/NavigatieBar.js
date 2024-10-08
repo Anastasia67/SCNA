@@ -10,8 +10,18 @@ const NavigationBar = () => {
     const currentRoute =
       navigation.getState().routes[navigation.getState().index].name;
 
+    // Only navigate if we're not already on the target screen.
     if (currentRoute !== route) {
-      navigation.navigate(route);
+      if (
+        (currentRoute === "BezoekerMeer" && route === "BezoekerRoute") ||
+        (currentRoute === "BezoekerRoute" && route === "BezoekerMeer")
+      ) {
+        // Use replace when navigating between specific screens
+        navigation.replace(route);
+      } else {
+        // Default navigation for other transitions
+        navigation.navigate(route);
+      }
     }
   };
 
