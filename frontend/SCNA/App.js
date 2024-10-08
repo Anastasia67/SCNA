@@ -37,11 +37,11 @@ export default function App() {
           component={LoginScreen}
           options={{ title: "Login" }}
         />
-        <Stack.Screen
+        {/* <Stack.Screen
           name="LoginBezoeker"
           component={BezoekerMapScreen}
           options={{ title: "Map" }}
-        />
+        /> */}
         <Stack.Screen
           name="BezoekerMap"
           component={BezoekerMapScreen}

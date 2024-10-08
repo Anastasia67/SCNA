@@ -26,7 +26,7 @@ const HomeScreen = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.bezoekerButton}
-          onPress={() => navigation.navigate("LoginBezoeker")}
+          onPress={() => navigation.navigate("BezoekerMap")}
         >
           <Text style={styles.buttonText}>Ga verder als een bezoeker</Text>
         </TouchableOpacity>

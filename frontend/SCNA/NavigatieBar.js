@@ -7,7 +7,12 @@ const NavigationBar = () => {
   const navigation = useNavigation();
 
   const handlePress = (route) => {
-    navigation.navigate(route);
+    const currentRoute =
+      navigation.getState().routes[navigation.getState().index].name;
+
+    if (currentRoute !== route) {
+      navigation.navigate(route);
+    }
   };
 
   return (
