@@ -8,6 +8,11 @@ import MapScreen from "./MapScreen";
 import BezoekerMapScreen from "./BezoekerMapScreen";
 import BezoekerMeerScreen from "./BezoekerMeerScreen";
 import BezoekerRouteScreen from "./BezoekerRouteScreen";
+import BHulpScreen from "./BHulpScreen";
+import BInstellingen from "./BInstellingen";
+import BOverDeAppScreen from "./BOverDeAppScreen";
+
+BOverDeAppScreen;
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +57,22 @@ export default function App() {
           component={BezoekerRouteScreen}
           options={{ title: "Route" }}
         />
+        <Stack.Screen
+          name="BHulpScreen"
+          component={BHulpScreen}
+          options={{ title: "Hulp" }}
+        />
+        <Stack.Screen
+          name="BInstellingen"
+          component={BInstellingen}
+          options={{ title: "Instellingen" }}
+        />
+        <Stack.Screen
+          name="BOverDeAppScreen"
+          component={BOverDeAppScreen}
+          options={{ title: "Over de app" }}
+        />
+
         <Stack.Screen
           name="Map"
           component={MapScreen}
