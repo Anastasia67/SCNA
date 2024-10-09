@@ -1,20 +1,17 @@
-// BezoekerMeerScreen.js
+// BInstellingen.js
 import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import NavigationBar from "./NavigatieBar";
-import { useNavigation } from "@react-navigation/native";
 
 const BInstellingen = () => {
   return (
     <View style={styles.container}>
-      {/* Hoofdmenu-items */}
       <View style={styles.menuContainer}>
         <Text style={styles.headerText}>Instellingen</Text>
         <Text style={styles.menuItem}>Taalopties</Text>
         <Text style={styles.menuItem}>Themakeuzen</Text>
       </View>
 
-      {/* NavigationBar aanroepen */}
       <NavigationBar />
     </View>
   );
@@ -37,11 +34,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
     paddingBottom: 5,
-  },
-  bodyText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#333",
   },
   menuContainer: {
     marginTop: 20,

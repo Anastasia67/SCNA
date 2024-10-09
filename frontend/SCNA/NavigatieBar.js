@@ -13,13 +13,12 @@ const NavigationBar = () => {
     // Only navigate if we're not already on the target screen.
     if (currentRoute !== route) {
       if (
+        (currentRoute === "BInstellingen" && route === "BezoekerRoute") ||
         (currentRoute === "BezoekerMeer" && route === "BezoekerRoute") ||
         (currentRoute === "BezoekerRoute" && route === "BezoekerMeer")
       ) {
-        // Use replace when navigating between specific screens
         navigation.replace(route);
       } else {
-        // Default navigation for other transitions
         navigation.navigate(route);
       }
     }

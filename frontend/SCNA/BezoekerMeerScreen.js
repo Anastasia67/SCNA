@@ -10,7 +10,6 @@ const BezoekerMeerScreen = () => {
   const handleMenuPress = (item) => {
     console.log(`${item} pressed`);
 
-    // Define navigation actions based on the pressed item
     switch (item) {
       case "OverDeApp":
         navigation.navigate("BOverDeAppScreen");
@@ -19,7 +18,7 @@ const BezoekerMeerScreen = () => {
         navigation.navigate("BHulpScreen");
         break;
       case "Instellingen":
-        navigation.navigate("BInstellingen");
+        navigation.navigate("BInstellingen", { fromMeer: true });
         break;
       default:
         console.log("Unknown item pressed");
