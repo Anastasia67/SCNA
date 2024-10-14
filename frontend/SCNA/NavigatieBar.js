@@ -1,26 +1,25 @@
-// NavigatieBar.js
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity, Image, Text, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 const NavigationBar = () => {
   const navigation = useNavigation();
 
+  const resetStackToMap = () => {
+    navigation.reset({
+      index: 0,
+      routes: [{ name: "BezoekerMap" }],
+    });
+  };
+
   const handlePress = (route) => {
     const currentRoute =
       navigation.getState().routes[navigation.getState().index].name;
 
-    // Only navigate if we're not already on the target screen.
-    if (currentRoute !== route) {
-      if (
-        (currentRoute === "BInstellingen" && route === "BezoekerRoute") ||
-        (currentRoute === "BezoekerMeer" && route === "BezoekerRoute") ||
-        (currentRoute === "BezoekerRoute" && route === "BezoekerMeer")
-      ) {
-        navigation.replace(route);
-      } else {
-        navigation.navigate(route);
-      }
+    if (route === "BezoekerMap") {
+      resetStackToMap(); // Reset the stack to go back to BezoekerMap
+    } else {
+      navigation.navigate(route); // Normal navigation
     }
   };
 
