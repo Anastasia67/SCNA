@@ -6,8 +6,12 @@ import HomeScreen from "./HomeScreen";
 import LoginScreen from "./LoginScreen";
 import MapScreen from "./MapScreen";
 import BezoekerMapScreen from "./BezoekerMapScreen";
+import MeerScreen from "./Meer";
 import BezoekerMeerScreen from "./BezoekerMeerScreen";
+import RouteScreen from "./Route";
 import BezoekerRouteScreen from "./BezoekerRouteScreen";
+import RoosterScreen from "./Rooster";
+
 import BHulpScreen from "./BHulpScreen";
 import BInstellingen from "./BInstellingen";
 import BOverDeAppScreen from "./BOverDeAppScreen";
@@ -77,6 +81,21 @@ export default function App() {
           name="Map"
           component={MapScreen}
           options={{ title: "Map" }}
+        />
+        <Stack.Screen
+          name="Meer"
+          component={MeerScreen}
+          options={{ title: "Meer" }}
+        />
+        <Stack.Screen
+          name="Route"
+          component={RouteScreen}
+          options={{ title: "Route" }}
+        />
+        <Stack.Screen
+          name="Rooster"
+          component={RoosterScreen}
+          options={{ title: "Rooster" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
