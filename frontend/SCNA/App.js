@@ -16,8 +16,6 @@ import BHulpScreen from "./BHulpScreen";
 import BInstellingen from "./BInstellingen";
 import BOverDeAppScreen from "./BOverDeAppScreen";
 
-BOverDeAppScreen;
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
