@@ -1,26 +1,28 @@
 // Meer.js
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
 
 const MeerScreen = () => {
   return (
     <View style={styles.container}>
-      {/* Hoofdmenu-items */}
-      <View style={styles.menuContainer}>
-        <Text style={styles.headerText}>Over de app</Text>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        {/* Hoofdmenu-items */}
+        <View style={styles.menuContainer}>
+          <Text style={styles.headerText}>Over de app</Text>
           <Text style={styles.menuItem}>Versie-informatie</Text>
           <Text style={styles.menuItem}>Partners</Text>
           <Text style={styles.menuItem}>Gebruikersvoorwaarden</Text>
 
-        <Text style={styles.headerText}>Hulp en ondersteuning</Text>
+          <Text style={styles.headerText}>Hulp en ondersteuning</Text>
           <Text style={styles.menuItem}>Veel gestelde vragen</Text>
           <Text style={styles.menuItem}>Feedback geven</Text>
 
-        <Text style={styles.headerText}>Instellingen</Text>
+          <Text style={styles.headerText}>Instellingen</Text>
           <Text style={styles.menuItem}>Taalopties</Text>
           <Text style={styles.menuItem}>Themakeuzen</Text>
-      </View>
+        </View>
+      </ScrollView>
 
       {/* NavigationBar aanroepen */}
       <NavigationBar />
@@ -31,9 +33,11 @@ const MeerScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     backgroundColor: "#f0f8ff",
+  },
+  scrollViewContent: {
     padding: 20,
+    alignItems: "center",
   },
   headerText: {
     fontSize: 24,
@@ -45,11 +49,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
     paddingBottom: 5,
-  },
-  bodyText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#333",
   },
   menuContainer: {
     marginTop: 20,
