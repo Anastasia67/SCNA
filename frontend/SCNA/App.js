@@ -79,17 +79,17 @@ export default function App() {
           options={{ title: "Over de app" }}
         />
         <Stack.Screen
-          name="BHulpScreen"
+          name="HulpScreen"
           component={HulpScreen}
           options={{ title: "Hulp" }}
         />
         <Stack.Screen
-          name="BInstellingen"
+          name="Instellingen"
           component={Instellingen}
           options={{ title: "Instellingen" }}
         />
         <Stack.Screen
-          name="BOverDeAppScreen"
+          name="OverDeAppScreen"
           component={OverDeAppScreen}
           options={{ title: "Over de app" }}
         />
