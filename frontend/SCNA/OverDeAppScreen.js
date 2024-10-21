@@ -1,16 +1,17 @@
-// BHulpScreen.js
+// OverDeAppScreen.js
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
-const BHulpScreen = () => {
+const OverDeAppScreen = () => {
   return (
     <View style={styles.container}>
       {/* Hoofdmenu-items */}
       <View style={styles.menuContainer}>
-        <Text style={styles.headerText}>Hulp en ondersteuning</Text>
-        <Text style={styles.menuItem}>Veel gestelde vragen</Text>
-        <Text style={styles.menuItem}>Feedback geven</Text>
+        <Text style={styles.headerText}>Over de app</Text>
+        <Text style={styles.menuItem}>Versie-informatie</Text>
+        <Text style={styles.menuItem}>Partners</Text>
+        <Text style={styles.menuItem}>Gebruikersvoorwaarden</Text>
       </View>
 
       {/* NavigationBar aanroepen */}
@@ -55,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BHulpScreen;
+export default OverDeAppScreen;

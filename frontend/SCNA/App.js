@@ -16,6 +16,10 @@ import BHulpScreen from "./BHulpScreen";
 import BInstellingen from "./BInstellingen";
 import BOverDeAppScreen from "./BOverDeAppScreen";
 
+import HulpScreen from "./HulpScreen";
+import Instellingen from "./Instellingen";
+import OverDeAppScreen from "./OverDeAppScreen";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -74,7 +78,21 @@ export default function App() {
           component={BOverDeAppScreen}
           options={{ title: "Over de app" }}
         />
-
+        <Stack.Screen
+          name="BHulpScreen"
+          component={HulpScreen}
+          options={{ title: "Hulp" }}
+        />
+        <Stack.Screen
+          name="BInstellingen"
+          component={Instellingen}
+          options={{ title: "Instellingen" }}
+        />
+        <Stack.Screen
+          name="BOverDeAppScreen"
+          component={OverDeAppScreen}
+          options={{ title: "Over de app" }}
+        />
         <Stack.Screen
           name="Map"
           component={MapScreen}

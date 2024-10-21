@@ -1,6 +1,6 @@
 // BInstellingen.js
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
 const BInstellingen = () => {

@@ -1,8 +1,7 @@
 // BOverDeAppScreen.js
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "./NavigatieBar";
-import { useNavigation } from "@react-navigation/native";
 
 const BOverDeAppScreen = () => {
   return (

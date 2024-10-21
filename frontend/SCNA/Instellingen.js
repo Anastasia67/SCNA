@@ -1,19 +1,17 @@
-// BHulpScreen.js
+// Instellingen.js
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
-const BHulpScreen = () => {
+const Instellingen = () => {
   return (
     <View style={styles.container}>
-      {/* Hoofdmenu-items */}
       <View style={styles.menuContainer}>
-        <Text style={styles.headerText}>Hulp en ondersteuning</Text>
-        <Text style={styles.menuItem}>Veel gestelde vragen</Text>
-        <Text style={styles.menuItem}>Feedback geven</Text>
+        <Text style={styles.headerText}>Instellingen</Text>
+        <Text style={styles.menuItem}>Taalopties</Text>
+        <Text style={styles.menuItem}>Themakeuzen</Text>
       </View>
 
-      {/* NavigationBar aanroepen */}
       <NavigationBar />
     </View>
   );
@@ -37,11 +35,6 @@ const styles = StyleSheet.create({
     borderBottomColor: "#ccc",
     paddingBottom: 5,
   },
-  bodyText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#333",
-  },
   menuContainer: {
     marginTop: 20,
     width: "100%",
@@ -55,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BHulpScreen;
+export default Instellingen;

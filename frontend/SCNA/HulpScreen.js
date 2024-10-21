@@ -1,9 +1,9 @@
-// BHulpScreen.js
+// HulpScreen.js
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import NavigationBar from "./NavigatieBar";
 
-const BHulpScreen = () => {
+const HulpScreen = () => {
   return (
     <View style={styles.container}>
       {/* Hoofdmenu-items */}
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BHulpScreen;
+export default HulpScreen;
