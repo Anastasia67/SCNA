@@ -5,21 +5,26 @@ import { useNavigation } from "@react-navigation/native";
 
 const NavigationBar = () => {
   const navigation = useNavigation();
-  const resetStackToMap = () => {
-    navigation.reset({
-      index: 0,
-      routes: [{ name: "Map" }],
-    });
-  };
 
   const handlePress = (route) => {
     const currentRoute =
       navigation.getState().routes[navigation.getState().index].name;
 
-    if (route === "Map") {
-      resetStackToMap(); // Reset the stack to go back to Map
-    } else {
-      navigation.navigate(route); // Normal navigation
+    // Only navigate if we're not already on the target screen.
+    if (currentRoute !== route) {
+      if (
+        (currentRoute === "Instellingen" && route === "Route") ||
+        (currentRoute === "Meer" && route === "Route") ||
+        (currentRoute === "Route" && route === "Meer") ||
+        (currentRoute === "Rooster" && route === "Meer") ||
+        (currentRoute === "Meer" && route === "Rooster") ||
+        (currentRoute === "Route" && route === "Rooster") ||
+        (currentRoute === "Rooster" && route === "Route")
+      ) {
+        navigation.replace(route);
+      } else {
+        navigation.navigate(route);
+      }
     }
   };
 
