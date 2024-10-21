@@ -12,14 +12,6 @@ import RouteScreen from "./Route";
 import BezoekerRouteScreen from "./BezoekerRouteScreen";
 import RoosterScreen from "./Rooster";
 
-import BHulpScreen from "./BHulpScreen";
-import BInstellingen from "./BInstellingen";
-import BOverDeAppScreen from "./BOverDeAppScreen";
-
-import HulpScreen from "./HulpScreen";
-import Instellingen from "./Instellingen";
-import OverDeAppScreen from "./OverDeAppScreen";
-
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -62,36 +54,6 @@ export default function App() {
           name="BezoekerRoute"
           component={BezoekerRouteScreen}
           options={{ title: "Route" }}
-        />
-        <Stack.Screen
-          name="BHulpScreen"
-          component={BHulpScreen}
-          options={{ title: "Hulp" }}
-        />
-        <Stack.Screen
-          name="BInstellingen"
-          component={BInstellingen}
-          options={{ title: "Instellingen" }}
-        />
-        <Stack.Screen
-          name="BOverDeAppScreen"
-          component={BOverDeAppScreen}
-          options={{ title: "Over de app" }}
-        />
-        <Stack.Screen
-          name="HulpScreen"
-          component={HulpScreen}
-          options={{ title: "Hulp" }}
-        />
-        <Stack.Screen
-          name="Instellingen"
-          component={Instellingen}
-          options={{ title: "Instellingen" }}
-        />
-        <Stack.Screen
-          name="OverDeAppScreen"
-          component={OverDeAppScreen}
-          options={{ title: "Over de app" }}
         />
         <Stack.Screen
           name="Map"

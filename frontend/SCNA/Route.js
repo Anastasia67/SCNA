@@ -1,4 +1,4 @@
-// BezoekerRouteScreen.js
+// Route.js
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     marginTop: 120,
-    width: 275,
+    width: "80%",
   },
   roosterButton: {
     backgroundColor: "#B8D061",
