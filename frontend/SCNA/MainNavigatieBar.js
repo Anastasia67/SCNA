@@ -48,7 +48,7 @@ const NavigationBar = () => {
         style={styles.navItem}
         onPress={() => handlePress("Rooster")}
       >
-        <Image source={require("./assets/Meer.png")} style={styles.logo} />
+        <Image source={require("./assets/Rooster.png")} style={styles.logo} />
         <Text style={styles.navText}>Rooster</Text>
       </TouchableOpacity>
       <TouchableOpacity
