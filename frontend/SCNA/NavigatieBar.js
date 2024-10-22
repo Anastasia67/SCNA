@@ -9,7 +9,6 @@ const NavigationBar = () => {
     const currentRoute =
       navigation.getState().routes[navigation.getState().index].name;
 
-    // Only navigate if we're not already on the target screen.
     if (currentRoute !== route) {
       if (
         (currentRoute === "BezoekerMeer" && route === "BezoekerRoute") ||

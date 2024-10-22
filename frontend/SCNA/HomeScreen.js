@@ -7,7 +7,7 @@ const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Image
-          source={require("./assets/logo-background.png")} // Zorg ervoor dat het juiste weg naar de afbeelding er is
+          source={require("./assets/logo-background.png")}
           style={styles.logo}
         />
         <Text style={styles.welcomeText}>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     resizeMode: "contain", // Zorgt ervoor dat de afbeelding in de gegeven afmetingen past
-    marginBottom: 20, // Ruimte tussen logo en tekst
+    marginBottom: 20,
   },
   welcomeText: {
     fontSize: 28,
@@ -69,14 +69,14 @@ const styles = StyleSheet.create({
   },
   loginButton: {
     backgroundColor: "#B8D061",
-    paddingVertical: 12, // Ruimte binnen de knop
+    paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 22,
     width: 300,
   },
   bezoekerButton: {
     backgroundColor: "#B8D061",
-    paddingVertical: 12, // Ruimte binnen de knop
+    paddingVertical: 12,
     paddingHorizontal: 20,
     borderRadius: 22,
     width: 300,

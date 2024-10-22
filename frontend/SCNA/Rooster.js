@@ -7,10 +7,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   Modal,
-  Button,
 } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
-import { useNavigation } from "@react-navigation/native"; // Importeer useNavigation
+import { useNavigation } from "@react-navigation/native";
 
 // Mock data function to simulate getting a schedule based on a specific week number
 const getScheduleForWeek = (weekNumber) => {
@@ -131,14 +130,14 @@ const RoosterScreen = () => {
   const [currentWeek, setCurrentWeek] = useState(43);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isModalVisible, setModalVisible] = useState(false);
-  const navigation = useNavigation(); // Gebruik useNavigation om navigatie te krijgen
+  const navigation = useNavigation();
 
   const schedule = getScheduleForWeek(currentWeek);
 
   const renderItem = ({ item, section }) => (
     <TouchableOpacity
       onPress={() => {
-        setSelectedItem({ ...item, day: section.day }); // Include the day in selectedItem
+        setSelectedItem({ ...item, day: section.day });
         setModalVisible(true);
       }}
       style={styles.itemContainer}
@@ -229,11 +228,9 @@ const RoosterScreen = () => {
                 onPress={() => {
                   // Haal gebouw en lokaal/klas uit de geselecteerde item
                   if (selectedItem && selectedItem.location) {
-                    // Gebruik een regex om de eerste letter te scheiden van de rest
                     const building = selectedItem.location.charAt(0); // Haal de eerste letter (bijv. 'B')
                     const classroom = selectedItem.location.slice(1); // De rest van de string (bijv. '2.15')
 
-                    // Stuur de gebouw en klas gegevens door naar Route
                     navigation.navigate("Route", { building, classroom });
                   }
                 }}
