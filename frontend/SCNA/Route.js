@@ -1,5 +1,5 @@
 // Route.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -11,8 +11,19 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { Picker } from "@react-native-picker/picker"; // dropdown
 import NavigationBar from "./MainNavigatieBar";
 
-const RouteScreen = ({ navigation }) => {
+const RouteScreen = ({ navigation, route }) => {
   const [selectedBuilding, setSelectedBuilding] = useState("");
+  const [classroom, setClassroom] = useState("");
+
+  // Haal gebouw en klas op van de route parameters als ze bestaan
+  useEffect(() => {
+    if (route.params?.building) {
+      setSelectedBuilding(route.params.building);
+    }
+    if (route.params?.classroom) {
+      setClassroom(route.params.classroom);
+    }
+  }, [route.params]);
 
   return (
     <View style={styles.container}>
@@ -52,18 +63,18 @@ const RouteScreen = ({ navigation }) => {
           onValueChange={(itemValue) => setSelectedBuilding(itemValue)}
         >
           <Picker.Item label="Selecteer een gebouw" value="" />
-          <Picker.Item label="Gebouw A" value="gebouwA" />
-          <Picker.Item label="Gebouw B" value="gebouwB" />
-          <Picker.Item label="Gebouw C" value="gebouwC" />
-          <Picker.Item label="Gebouw D" value="gebouwD" />
-          <Picker.Item label="Gebouw E" value="gebouwE" />
-          <Picker.Item label="Gebouw F" value="gebouwF" />
-          <Picker.Item label="Gebouw G" value="gebouwG" />
-          <Picker.Item label="Gebouw H" value="gebouwH" />
-          <Picker.Item label="Gebouw S" value="gebouwS" />
-          <Picker.Item label="Gebouw T" value="gebouwT" />
-          <Picker.Item label="Gebouw X" value="gebouwX" />
-          <Picker.Item label="Gebouw Z" value="gebouwZ" />
+          <Picker.Item label="Gebouw A" value="A" />
+          <Picker.Item label="Gebouw B" value="B" />
+          <Picker.Item label="Gebouw C" value="C" />
+          <Picker.Item label="Gebouw D" value="D" />
+          <Picker.Item label="Gebouw E" value="E" />
+          <Picker.Item label="Gebouw F" value="F" />
+          <Picker.Item label="Gebouw G" value="G" />
+          <Picker.Item label="Gebouw H" value="H" />
+          <Picker.Item label="Gebouw S" value="S" />
+          <Picker.Item label="Gebouw T" value="T" />
+          <Picker.Item label="Gebouw X" value="X" />
+          <Picker.Item label="Gebouw Z" value="Z" />
         </Picker>
       </View>
 
@@ -74,6 +85,8 @@ const RouteScreen = ({ navigation }) => {
             style={styles.searchInput}
             placeholder=""
             placeholderTextColor="#888"
+            value={classroom} // Stel de waarde in op classroom state
+            onChangeText={(text) => setClassroom(text)}
           />
           <Icon name="search" size={20} color="#888" style={styles.icon} />
         </View>

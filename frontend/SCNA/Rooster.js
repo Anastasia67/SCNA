@@ -226,7 +226,17 @@ const RoosterScreen = () => {
               </View>
               <TouchableOpacity
                 style={styles.closeButton}
-                onPress={() => navigation.navigate("Route")} // Navigeer naar het Route scherm
+                onPress={() => {
+                  // Haal gebouw en lokaal/klas uit de geselecteerde item
+                  if (selectedItem && selectedItem.location) {
+                    // Gebruik een regex om de eerste letter te scheiden van de rest
+                    const building = selectedItem.location.charAt(0); // Haal de eerste letter (bijv. 'B')
+                    const classroom = selectedItem.location.slice(1); // De rest van de string (bijv. '2.15')
+
+                    // Stuur de gebouw en klas gegevens door naar Route
+                    navigation.navigate("Route", { building, classroom });
+                  }
+                }}
               >
                 <Text style={styles.closeButtonText}>Route Maken</Text>
               </TouchableOpacity>
