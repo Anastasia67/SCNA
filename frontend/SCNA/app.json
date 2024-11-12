@@ -12,9 +12,17 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Deze app gebruikt uw locatie om kaarten en navigatie te verbeteren.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Deze app heeft altijd toegang tot uw locatie nodig voor nauwkeurige navigatie."
+      }
     },
     "android": {
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
