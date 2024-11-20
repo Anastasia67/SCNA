@@ -58,12 +58,6 @@ const MapScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Map Screen</Text>
-      <Text style={styles.bodyText}>
-        Hier kunt u de campus verkennen en de weg vinden naar uw lessen en
-        belangrijke faciliteiten.
-      </Text>
-
       {/* Voeg de MapView toe */}
       {region && (
         <MapView
@@ -87,26 +81,10 @@ const MapScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#f0f8ff",
-    padding: 20,
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 20,
-    color: "#2e8b57",
-  },
-  bodyText: {
-    fontSize: 16,
-    textAlign: "center",
-    color: "#333",
   },
   map: {
-    width: "100%",
-    height: 400,
-    marginVertical: 20,
+    flex: 1,
   },
 });
 
