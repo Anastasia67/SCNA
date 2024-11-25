@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
 import { useNavigation } from "@react-navigation/native";
-import MapView, { Marker, Overlay } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 
 const MapScreen = () => {
@@ -28,38 +28,56 @@ const MapScreen = () => {
       );
     });
 
-    const fetchLocation = async () => {
-      // Vraag toestemming voor locatiegebruik
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        alert(
-          "Toegang tot locatie geweigerd. Schakel locatie in om de kaart te gebruiken."
+    const trackLocation = async () => {
+      try {
+        // Vraag toestemming voor locatiegebruik
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== "granted") {
+          Alert.alert(
+            "Locatie toestemming geweigerd",
+            "Schakel locatie in om de kaart te gebruiken."
+          );
+          return;
+        }
+
+        // Start het volgen van de gebruiker
+        await Location.watchPositionAsync(
+          {
+            accuracy: Location.Accuracy.High,
+            timeInterval: 1000, // Update elke seconde
+            distanceInterval: 1, // Update na 1 meter beweging
+          },
+          (location) => {
+            const { latitude, longitude } = location.coords;
+            setUserLocation({ latitude, longitude });
+            setRegion({
+              latitude,
+              longitude,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            });
+          }
         );
-        return;
+      } catch (error) {
+        console.error("Locatiefout:", error);
+        Alert.alert(
+          "Fout bij ophalen locatie",
+          "Er is een probleem opgetreden bij het ophalen van je locatie."
+        );
       }
-
-      // Haal huidige locatie op
-      const location = await Location.getCurrentPositionAsync({});
-      const { latitude, longitude } = location.coords;
-
-      setUserLocation({ latitude, longitude });
-      setRegion({
-        latitude,
-        longitude,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-      });
     };
 
-    fetchLocation();
+    trackLocation();
 
-    return unsubscribe;
+    return () => {
+      unsubscribe();
+    };
   }, [navigation]);
 
   return (
     <View style={styles.container}>
       {/* Voeg de MapView toe */}
-      {region && (
+      {region ? (
         <MapView
           style={styles.map}
           region={region}
@@ -70,6 +88,8 @@ const MapScreen = () => {
             <Marker coordinate={userLocation} title="Jouw locatie" />
           )}
         </MapView>
+      ) : (
+        <Text style={styles.loadingText}>Locatie wordt geladen...</Text>
       )}
 
       {/* NavigationBar aanroepen */}
@@ -85,6 +105,11 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
+  },
+  loadingText: {
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 18,
   },
 });
 
