@@ -20,8 +20,15 @@ const LoginScreen = ({ navigation }) => {
 
       console.log("Login successful:", user);
 
-      // Navigate to the Map screen
-      navigation.navigate("Map", { user });
+      // Pass only serializable data to the Map screen
+      navigation.navigate("Map", {
+        user: {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+          photoURL: user.photoURL,
+        },
+      });
     } catch (error) {
       console.error("Login error:", error);
       Alert.alert("Login Failed", error.message);
@@ -72,33 +79,3 @@ const styles = StyleSheet.create({
 });
 
 export default LoginScreen;
-
-/* Dit is voor de echte login niet weghalen!! */
-// const handleLogin = async () => {
-//   try {
-//     const response = await fetch("http://localhost:5000/login", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ email, password }),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error("Login failed");
-//     }
-
-//     const data = await response.json();
-//     console.log("Login successful", data);
-
-//     navigation.navigate("Map");
-
-//   } catch (error) {
-//     console.error("Error during login:", error);
-//     if (Platform.OS === "web") {
-//       window.alert("Login Error: " + error.message);
-//     } else {
-//       Alert.alert("Login Error", error.message);
-//     }
-//   }
-// };
