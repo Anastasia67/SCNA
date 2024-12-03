@@ -2,13 +2,19 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
 import { useNavigation } from "@react-navigation/native";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Marker, Polyline } from "react-native-maps";
 import * as Location from "expo-location";
+import polyline from "@mapbox/polyline";
 
 const MapScreen = () => {
   const navigation = useNavigation();
   const [region, setRegion] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
+  const [destination, setDestination] = useState({
+    latitude: 52.379189, // Example coordinates (Amsterdam)
+    longitude: 4.899431,
+  });
+  const [routeCoords, setRouteCoords] = useState([]);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
@@ -56,6 +62,9 @@ const MapScreen = () => {
               latitudeDelta: 0.01,
               longitudeDelta: 0.01,
             });
+
+            // Fetch route data using OSRM
+            fetchRoute({ latitude, longitude }, destination);
           }
         );
       } catch (error) {
@@ -74,25 +83,60 @@ const MapScreen = () => {
     };
   }, [navigation]);
 
+  const fetchRoute = async (origin, destination) => {
+    try {
+      const url = `http://router.project-osrm.org/route/v1/driving/${origin.longitude},${origin.latitude};${destination.longitude},${destination.latitude}?overview=full&geometries=polyline`;
+
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (data.routes.length) {
+        const points = polyline.decode(data.routes[0].geometry);
+        const coords = points.map(([latitude, longitude]) => ({
+          latitude,
+          longitude,
+        }));
+        setRouteCoords(coords);
+      } else {
+        Alert.alert("No Routes Found", "Could not fetch a route.");
+      }
+    } catch (error) {
+      console.error(error);
+      Alert.alert("Error", "Could not fetch the route.");
+    }
+  };
+
   return (
     <View style={styles.container}>
-      {/* Voeg de MapView toe */}
+      {/* Add MapView */}
       {region ? (
         <MapView
           style={styles.map}
           region={region}
-          showsUserLocation={true} // Toon de locatie van de gebruiker
+          showsUserLocation={true} // Show user's location
         >
-          {/* Voeg een marker toe voor de gebruikerslocatie */}
+          {/* User location marker */}
           {userLocation && (
             <Marker coordinate={userLocation} title="Jouw locatie" />
+          )}
+          {/* Destination marker */}
+          {destination && (
+            <Marker coordinate={destination} title="Bestemming" />
+          )}
+          {/* Route Polyline */}
+          {routeCoords.length > 0 && (
+            <Polyline
+              coordinates={routeCoords}
+              strokeWidth={5}
+              strokeColor="blue"
+            />
           )}
         </MapView>
       ) : (
         <Text style={styles.loadingText}>Locatie wordt geladen...</Text>
       )}
 
-      {/* NavigationBar aanroepen */}
+      {/* NavigationBar */}
       <NavigationBar />
     </View>
   );
