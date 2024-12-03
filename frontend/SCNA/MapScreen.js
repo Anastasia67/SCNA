@@ -2,10 +2,8 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
 
-import { useNavigation } from "@react-navigation/native";
 import MapView, { Marker, Polyline } from "react-native-maps";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import polyline from "@mapbox/polyline";
 
