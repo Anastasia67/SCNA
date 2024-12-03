@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
+
 import { useNavigation } from "@react-navigation/native";
 import MapView, { Marker, Polyline } from "react-native-maps";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import polyline from "@mapbox/polyline";
 
 const MapScreen = () => {
   const navigation = useNavigation();
+  const route = useRoute(); // Access route to get the user param
+  const { user } = route.params || {}; // Destructure the user param
+
   const [region, setRegion] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [destination, setDestination] = useState({
@@ -15,6 +21,17 @@ const MapScreen = () => {
     longitude: 4.899431,
   });
   const [routeCoords, setRouteCoords] = useState([]);
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true); // State to manage welcome message visibility
+
+  useEffect(() => {
+    // Hide welcome message after 5 seconds
+    const timer = setTimeout(() => {
+      setShowWelcomeMessage(false);
+    }, 5000);
+
+    // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
@@ -109,6 +126,12 @@ const MapScreen = () => {
   return (
     <View style={styles.container}>
       {/* Add MapView */}
+      {/* Welcome message: only visible if showWelcomeMessage is true */}
+      {showWelcomeMessage && user && (
+        <Text style={styles.welcomeText}>Welkom!</Text>
+      )}
+
+      {/* Voeg de MapView toe */}
       {region ? (
         <MapView
           style={styles.map}
@@ -154,6 +177,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 20,
     fontSize: 18,
+  },
+  welcomeText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    margin: 10,
   },
 });
 

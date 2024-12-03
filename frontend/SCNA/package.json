@@ -11,6 +11,7 @@
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
     "@mapbox/polyline": "^1.2.1",
+    "@react-native-async-storage/async-storage": "^1.24.0",
     "@react-native-community/checkbox": "^0.5.17",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-picker/picker": "^2.7.5",
@@ -21,6 +22,10 @@
     "expo-location": "~17.0.1",
     "expo-status-bar": "~1.12.1",
     "polyline": "^0.2.0",
+    "expo": "^51.0.36",
+    "expo-location": "~17.0.1",
+    "expo-status-bar": "~1.12.1",
+    "firebase": "^11.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
