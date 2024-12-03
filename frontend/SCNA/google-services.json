@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "794002645490",
+    "project_id": "scna-c9bfa",
+    "storage_bucket": "scna-c9bfa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794002645490:android:4a45077904e79aa6a20b6b",
+        "android_client_info": {
+          "package_name": "campus.navigatie.SCNA"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkZYGFn6QyX2TqdTHqdxkhzcNb_RMq7_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
