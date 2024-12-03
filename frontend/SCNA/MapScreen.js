@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
-
 import MapView, { Marker, Polyline } from "react-native-maps";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import * as Location from "expo-location";
