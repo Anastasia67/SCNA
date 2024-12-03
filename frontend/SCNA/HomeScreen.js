@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   topSection: {
     flex: 2,
-    backgroundColor: "#71B682",
+    backgroundColor: "#45b97c",
     justifyContent: "flex-end",
     alignItems: "center",
     paddingBottom: 80,

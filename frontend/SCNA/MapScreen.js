@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Alert } from "react-native";
+import { StyleSheet, Text, View, Alert, Image } from "react-native";
 import NavigationBar from "./MainNavigatieBar";
 import MapView, { Marker, Polyline } from "react-native-maps";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -8,27 +8,29 @@ import polyline from "@mapbox/polyline";
 
 const MapScreen = () => {
   const navigation = useNavigation();
-  const route = useRoute(); // Access route to get the user param
-  const { user } = route.params || {}; // Destructure the user param
+  const route = useRoute();
+  const { user } = route.params || {};
 
   const [region, setRegion] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [destination, setDestination] = useState({
-    latitude: 52.379189, // Example coordinates (Amsterdam)
+    latitude: 52.379189,
     longitude: 4.899431,
   });
   const [routeCoords, setRouteCoords] = useState([]);
-  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true); // State to manage welcome message visibility
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
 
+  // UseEffect for splash screen timer
   useEffect(() => {
-    // Hide welcome message after 5 seconds
     const timer = setTimeout(() => {
-      setShowWelcomeMessage(false);
-    }, 5000);
+      setShowSplashScreen(false);
+      navigation.setOptions({ headerShown: true }); // Show the header after splash
+    }, 6000);
 
-    // Cleanup the timer on component unmount
+    navigation.setOptions({ headerShown: false }); // Hide the header during splash
+
     return () => clearTimeout(timer);
-  }, []);
+  }, [navigation]);
 
   useEffect(() => {
     const unsubscribe = navigation.addListener("beforeRemove", (e) => {
@@ -50,7 +52,6 @@ const MapScreen = () => {
 
     const trackLocation = async () => {
       try {
-        // Vraag toestemming voor locatiegebruik
         const { status } = await Location.requestForegroundPermissionsAsync();
         if (status !== "granted") {
           Alert.alert(
@@ -60,12 +61,11 @@ const MapScreen = () => {
           return;
         }
 
-        // Start het volgen van de gebruiker
         await Location.watchPositionAsync(
           {
             accuracy: Location.Accuracy.High,
-            timeInterval: 1000, // Update elke seconde
-            distanceInterval: 1, // Update na 1 meter beweging
+            timeInterval: 1000,
+            distanceInterval: 1,
           },
           (location) => {
             const { latitude, longitude } = location.coords;
@@ -77,7 +77,6 @@ const MapScreen = () => {
               longitudeDelta: 0.01,
             });
 
-            // Fetch route data using OSRM
             fetchRoute({ latitude, longitude }, destination);
           }
         );
@@ -122,42 +121,42 @@ const MapScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Add MapView */}
-      {/* Welcome message: only visible if showWelcomeMessage is true */}
-      {showWelcomeMessage && user && (
-        <Text style={styles.welcomeText}>Welkom!</Text>
-      )}
-
-      {/* Voeg de MapView toe */}
-      {region ? (
-        <MapView
-          style={styles.map}
-          region={region}
-          showsUserLocation={true} // Show user's location
-        >
-          {/* User location marker */}
-          {userLocation && (
-            <Marker coordinate={userLocation} title="Jouw locatie" />
-          )}
-          {/* Destination marker */}
-          {destination && (
-            <Marker coordinate={destination} title="Bestemming" />
-          )}
-          {/* Route Polyline */}
-          {routeCoords.length > 0 && (
-            <Polyline
-              coordinates={routeCoords}
-              strokeWidth={5}
-              strokeColor="blue"
-            />
-          )}
-        </MapView>
+      {/* Show Splash Screen */}
+      {showSplashScreen ? (
+        <View style={styles.splashContainer}>
+          <Image
+            source={require("./assets/loadinglogo.png")}
+            style={styles.splashImage}
+          />
+        </View>
       ) : (
-        <Text style={styles.loadingText}>Locatie wordt geladen...</Text>
+        <>
+          {region ? (
+            <MapView
+              style={styles.map}
+              region={region}
+              showsUserLocation={true}
+            >
+              {userLocation && (
+                <Marker coordinate={userLocation} title="Jouw locatie" />
+              )}
+              {destination && (
+                <Marker coordinate={destination} title="Bestemming" />
+              )}
+              {routeCoords.length > 0 && (
+                <Polyline
+                  coordinates={routeCoords}
+                  strokeWidth={5}
+                  strokeColor="blue"
+                />
+              )}
+            </MapView>
+          ) : (
+            <Text style={styles.loadingText}>Locatie wordt geladen...</Text>
+          )}
+          <NavigationBar />
+        </>
       )}
-
-      {/* NavigationBar */}
-      <NavigationBar />
     </View>
   );
 };
@@ -175,11 +174,15 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 18,
   },
-  welcomeText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
-    margin: 10,
+  splashContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  splashImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover",
   },
 });
 

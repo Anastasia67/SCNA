@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     color: "#333",
   },
   routeButton: {
-    backgroundColor: "#B8D061",
+    backgroundColor: "#71B682",
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 30,
@@ -184,7 +184,7 @@ const styles = StyleSheet.create({
     width: "80%",
   },
   roosterButton: {
-    backgroundColor: "#B8D061",
+    backgroundColor: "#71B682",
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 30,

@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3816c053-192d-4642-8372-7d4c94030c05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BezoekerRouteScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/BezoekerRouteScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainNavigatieBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/MainNavigatieBar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MapScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/MapScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NavigatieBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/NavigatieBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Route.js" beforeDir="false" afterPath="$PROJECT_DIR$/Route.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
