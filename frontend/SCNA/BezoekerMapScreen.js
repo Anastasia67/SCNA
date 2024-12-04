@@ -153,7 +153,12 @@ const BezoekerMapScreen = () => {
               )}
             </MapView>
           ) : (
-            <Text style={styles.loadingText}>Locatie wordt geladen...</Text>
+            <View style={styles.splashContainer}>
+              <Image
+                source={require("./assets/loadinglogo.png")}
+                style={styles.splashImage}
+              />
+            </View>
           )}
           <NavigationBar />
         </>
