@@ -26,7 +26,7 @@ const BezoekerMapScreen = () => {
     const timer = setTimeout(() => {
       setShowSplashScreen(false);
       navigation.setOptions({ headerShown: true }); // Show the header after splash
-    }, 6000);
+    }, 1000);
 
     navigation.setOptions({ headerShown: false }); // Hide the header during splash
 

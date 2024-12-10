@@ -27,33 +27,6 @@ const RouteScreen = ({ navigation, route }) => {
 
   return (
     <View style={styles.container}>
-      {/* Search Bars */}
-      <View style={styles.searchContainer}>
-        <View style={styles.searchBox}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Jouw locatie"
-            placeholderTextColor="#888"
-          />
-          <Icon name="search" size={20} color="#888" style={styles.icon} />
-        </View>
-        <View style={styles.searchBox}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Waar wil je heen?"
-            placeholderTextColor="#888"
-          />
-          <Icon name="search" size={20} color="#888" style={styles.icon} />
-        </View>
-      </View>
-
-      <TouchableOpacity
-        style={styles.roosterButton}
-        onPress={() => navigation.navigate("Rooster")}
-      >
-        <Text style={styles.buttonText}>Rooster</Text>
-      </TouchableOpacity>
-
       {/* Dropdown for building selection */}
       <Text style={styles.label}>Gebouw</Text>
       <View style={styles.dropdownContainer}>
@@ -91,6 +64,13 @@ const RouteScreen = ({ navigation, route }) => {
           <Icon name="search" size={20} color="#888" style={styles.icon} />
         </View>
       </View>
+
+      <TouchableOpacity
+        style={styles.roosterButton}
+        onPress={() => navigation.navigate("Rooster")}
+      >
+        <Text style={styles.buttonText}>Rooster</Text>
+      </TouchableOpacity>
 
       <TouchableOpacity
         style={styles.routeButton}
@@ -151,6 +131,7 @@ const styles = StyleSheet.create({
     color: "#2e8b57",
     alignSelf: "flex-start",
     marginBottom: 10,
+    marginTop: "5%",
   },
   dropdownContainer: {
     width: "100%",
@@ -180,7 +161,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 30,
-    marginTop: 120,
+    marginTop: 50,
     width: "80%",
   },
   roosterButton: {
@@ -188,9 +169,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 30,
-    marginBottom: 20,
-    marginTop: -10,
-    width: 275,
+    marginTop: "30%",
+    width: "80%",
   },
   buttonText: {
     color: "#fff",

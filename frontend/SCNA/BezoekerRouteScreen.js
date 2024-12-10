@@ -16,26 +16,6 @@ const BezoekerRouteScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      {/* Search Bars */}
-      <View style={styles.searchContainer}>
-        <View style={styles.searchBox}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Jouw locatie"
-            placeholderTextColor="#888"
-          />
-          <Icon name="search" size={20} color="#888" style={styles.icon} />
-        </View>
-        <View style={styles.searchBox}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Waar wil je heen?"
-            placeholderTextColor="#888"
-          />
-          <Icon name="search" size={20} color="#888" style={styles.icon} />
-        </View>
-      </View>
-
       {/* Dropdown for building selection */}
       <Text style={styles.label}>Gebouw</Text>
       <View style={styles.dropdownContainer}>
@@ -110,7 +90,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderRadius: 20,
     paddingHorizontal: 10,
-    marginBottom: 20,
+    marginBottom: 15,
     backgroundColor: "#fff",
   },
   searchInput: {
@@ -131,6 +111,7 @@ const styles = StyleSheet.create({
     color: "#2e8b57",
     alignSelf: "flex-start",
     marginBottom: 10,
+    marginTop: "5%",
   },
   dropdownContainer: {
     width: "100%",
@@ -160,8 +141,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     paddingVertical: 15,
     paddingHorizontal: 30,
-    marginTop: 120,
-    width: 275,
+    marginTop: "50%",
+    width: "80%",
   },
   buttonText: {
     color: "#fff",
