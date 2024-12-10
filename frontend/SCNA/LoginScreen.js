@@ -7,6 +7,7 @@ import {
   View,
   TouchableOpacity,
   Alert,
+  Image,
   Linking,
 } from "react-native";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -45,16 +46,20 @@ const LoginScreen = ({ navigation }) => {
     <View style={styles.container}>
       {/* Login Form */}
       <View style={styles.formContainer}>
+        <Image
+          source={require("./assets/Windesheim_logo+pay-off_ZG_RGB-DEF.png")}
+          style={styles.logo}
+        />
         <TextInput
           style={styles.input}
-          placeholder="Email"
+          placeholder="E-mail"
           value={email}
           onChangeText={setEmail}
           keyboardType="email-address"
         />
         <TextInput
           style={styles.input}
-          placeholder="Wachtwoord"
+          placeholder="Password"
           value={password}
           onChangeText={setPassword}
           secureTextEntry
@@ -66,26 +71,32 @@ const LoginScreen = ({ navigation }) => {
           Sign in with your Windesheim account:
         </Text>
         <Text style={styles.exampleText}>
-          Students: s1234567@student.windesheim.nl{"\n"}
-          Employees: p1234567@windesheim.nl
+          Students:{"\n"}
+          s1234567@student.windesheim.nl{"\n"}
+          {"\n"}
+          Employees:{"\n"}
+          p1234567@windesheim.nl
         </Text>
+        <Text style={styles.linkHeader}>Forgot your password? Go to </Text>
         <Text
           style={styles.link}
           onPress={() => Linking.openURL("https://password.windesheim.nl")}
         >
-          Forgot your password? Go to https://password.windesheim.nl
+          https://password.windesheim.nl
         </Text>
+        <Text style={styles.importantTextHeader}>Important: </Text>
         <Text style={styles.importantText}>
-          Important:
-          {"\n"}• Close your browser to sign out
-          {"\n"}• Verify that this URL starts with https://sts.windesheim.nl/
+          • Close your browser to sign out{"\n"}• Verify that this URL starts
+          with https://sts.windesheim.nl/
         </Text>
+        <Text style={styles.linkHeader}>Need help? </Text>
         <Text
           style={styles.link}
           onPress={() => Linking.openURL("https://serviceplein.windesheim.nl")}
         >
-          Need help? Visit https://serviceplein.windesheim.nl
+          Visit https://serviceplein.windesheim.nl
         </Text>
+        <Text style={styles.numberText}>• T 088-469 9079</Text>
       </View>
     </View>
   );
@@ -126,23 +137,33 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     fontSize: 16,
   },
+  logo: {
+    width: 150,
+    height: 200,
+    marginTop: -40,
+    resizeMode: "contain", // Zorgt ervoor dat de afbeelding in de gegeven afmetingen past
+  },
   loginButton: {
-    backgroundColor: "#4CAF50",
-    height: 50,
-    justifyContent: "center",
+    backgroundColor: "#B8D061",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 22,
+    width: 300,
     alignItems: "center",
-    borderRadius: 5,
-    marginBottom: 20,
+    alignSelf: "center",
+    marginTop: 30,
+    marginBottom: 40,
   },
   loginButtonText: {
-    color: "white",
+    color: "black",
     fontSize: 16,
-    fontWeight: "bold",
+    textAlign: "center",
   },
   helperText: {
     fontSize: 14,
     marginBottom: 5,
     color: "#333",
+    fontWeight: "bold",
   },
   exampleText: {
     fontSize: 14,
@@ -155,10 +176,26 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
     marginBottom: 15,
   },
+  linkHeader: {
+    fontSize: 14,
+    color: "#333",
+    fontWeight: "bold",
+  },
+  importantTextHeader: {
+    fontSize: 14,
+    color: "#333",
+    fontWeight: "bold",
+  },
   importantText: {
     fontSize: 14,
     color: "#333",
     marginBottom: 15,
+  },
+  numberText: {
+    fontSize: 14,
+    color: "#333",
+    marginBottom: 15,
+    marginTop: -15,
   },
 });
 
