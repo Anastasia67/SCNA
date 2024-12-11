@@ -1,0 +1,40 @@
+name: Run Tests 
+
+on:
+  push:
+    branches:
+        - main  # Run on pushes to the main branch
+  pull_request:
+    branches:
+        - main  # Run on pull requests targeting the main branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Gebruik de Node.js-versie die jouw project vereist
+
+
+    - name: Install dependencies
+      run: npm install # Of gebruik 'yarn install' als je yarn gebruikt
+
+    
+    - name: Run tests and generate coverage report
+      run: npx jest --coverage # React Native gebruikt vaak Jest voor tests
+
+    
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}  # Voeg dit toe in de GitHub Secrets
+        files: ./coverage/lcov.info          # Pad naar de gegenereerde coverage file
+        flags: react-native                  # Optionele flag om rapporten te onderscheiden
+        name: react-native-coverage-report   # Optionele naam voor de upload
