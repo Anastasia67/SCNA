@@ -1,0 +1,5 @@
+collectCoverageFrom: [
+  'src//*.{js,jsx,ts,tsx}', // Pas aan op je projectstructuur
+  '!src//*.d.ts', // Sluit typenbestanden uit
+  '!src/index.js',  // Sluit specifieke bestanden uit
+],
