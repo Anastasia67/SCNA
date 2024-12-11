@@ -1,6 +1,6 @@
 module.exports = {
     preset: 'react-native',
-    rootDir: './SCNA', // Pas dit aan naar de map waar je tests en code staan
+    rootDir: './frontend/SCNA', // Pas dit aan naar de map waar je tests en code staan
     transform: {
       '^.+\.[jt]sx?$': 'babel-jest', // Gebruik babel-jest om JavaScript en TypeScript te transpilen
     },
