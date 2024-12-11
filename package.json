@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Anastasia67/SCNA#readme",
   "dependencies": {
     "react-native-msal": "^4.0.4"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
