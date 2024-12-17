@@ -37,7 +37,7 @@ describe("LoginScreen Tests", () => {
     const mockNavigation = { navigate: jest.fn() };
 
     const { getByPlaceholderText, getByText } = render(
-      <LoginScreen navigation={mockNavigation} />
+      React.createElement(LoginScreen, { navigation: mockNavigation }) // Avoid JSX
     );
 
     // Fill in email and password fields
@@ -62,7 +62,7 @@ describe("LoginScreen Tests", () => {
         },
       });
     });
-  }, 10000); // Set timeout to 10 seconds instead standard 5
+  }, 10000); // Set timeout to 10 seconds instead of standard 5
 
   it("handles invalid login credentials", async () => {
     // Mock rejected login
@@ -73,7 +73,7 @@ describe("LoginScreen Tests", () => {
     const mockNavigation = { navigate: jest.fn() };
 
     const { getByPlaceholderText, getByText } = render(
-      <LoginScreen navigation={mockNavigation} />
+      React.createElement(LoginScreen, { navigation: mockNavigation }) // Avoid JSX
     );
 
     // Fill in email and password fields
