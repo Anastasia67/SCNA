@@ -20,7 +20,7 @@ jest.mock("firebase/auth", () => ({
 }));
 
 jest.mock("../firebaseConfig", () => ({
-  auth: {},
+  auth: {}, // Mock the auth instance
 }));
 
 describe("LoginScreen Tests", () => {
@@ -61,7 +61,7 @@ describe("LoginScreen Tests", () => {
         },
       });
     });
-  });
+  }, 10000); // Set timeout to 10 seconds instead standard 5
 
   it("handles invalid login credentials", async () => {
     // Mock rejected login

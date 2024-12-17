@@ -13,8 +13,9 @@ module.exports = {
     "!**/coverage/**",
   ],
   transformIgnorePatterns: [
-    "node_modules/(?!(react-native|react|@react-native|@react-native-firebase)/)",
+    "node_modules/(?!(react-native|@react-native|@react-native-firebase)/)", // Ensure Firebase is transformed
   ],
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   testMatch: [
     "<rootDir>/_test_/**/*.(spec|test).[jt]s?(x)", // Look for tests in `_test_`
   ],
