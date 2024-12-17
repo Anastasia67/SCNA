@@ -38,7 +38,7 @@ jobs:
         run: |
           echo "$FIREBASE_CREDENTIALS" > firebase-credentials.json
           export GOOGLE_APPLICATION_CREDENTIALS=firebase-credentials.json
-          npx jest _test_/auth.unit_test.js --ci
+          npx jest --ci --testPathPattern "_test_"
 
   test-all-unit-tests:
     runs-on: ubuntu-latest
