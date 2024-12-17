@@ -7,7 +7,8 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: "../coverage",
   coverageReporters: ["lcov", "text"],
-  testEnvironment: "jsdom",
+  //testEnvironment: "jsdom",
+  testEnvironment: "node", // Ensures Jest runs in a Node-like environment
   collectCoverageFrom: [
     "**/*.{js,jsx,ts,tsx}",
     "!**/node_modules/**",
@@ -16,6 +17,7 @@ module.exports = {
   transformIgnorePatterns: [
     "node_modules/(?!(react-native|@react-native|@react-native-firebase|react-navigation|expo|@react-native-community)/)",
   ],
+  testPathIgnorePatterns: ["/node_modules/", "/dist/"],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   testMatch: [
     "<rootDir>/_test_/**/*.(spec|test).[jt]s?(x)", // Look for tests in `_test_`
