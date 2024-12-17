@@ -33,9 +33,9 @@ jobs:
         run: |
           nohup firebase emulators:start --only auth > /dev/null &
           sleep 5
-          
-      - name: Debug Babel Config
-        run: npx babel --show-config --filename frontend/SCNA/_test_/auth.test.js
+
+      - name: Clear Jest Cache
+        run: npx jest --clearCache
 
       - name: Run Firebase Authentication Tests
         run: |
@@ -58,6 +58,9 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Clear Jest Cache
+        run: npx jest --clearCache
 
       - name: Run All Unit Tests
         run: npx jest --ci --coverage
