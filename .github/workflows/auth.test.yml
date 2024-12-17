@@ -1,7 +1,9 @@
-name: Firebase Auth Tests
+name: CI - Firebase Auth and Unit Tests
 
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
 
 jobs:
@@ -36,4 +38,23 @@ jobs:
         run: |
           echo "$FIREBASE_CREDENTIALS" > firebase-credentials.json
           export GOOGLE_APPLICATION_CREDENTIALS=firebase-credentials.json
-          npx jest --ci
+          npx jest _test_/auth.unit_test.js --ci
+
+  test-all-unit-tests:
+    runs-on: ubuntu-latest
+    needs: test-firebase-auth # Run only after Firebase tests succeed
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run All Unit Tests
+        run: npx jest --ci --coverage
