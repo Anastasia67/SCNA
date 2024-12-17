@@ -10,7 +10,7 @@ module.exports = function (api) {
         },
       ],
       "babel-preset-expo",
-      "@babel/preset-react", // Add this to handle JSX
+      "@babel/preset-react", // Enable JSX
     ],
   };
 };

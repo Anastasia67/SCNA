@@ -14,7 +14,7 @@ module.exports = {
     "!**/coverage/**",
   ],
   transformIgnorePatterns: [
-    "node_modules/(?!(react-native|@react-native|@react-native-firebase)/)", // Transform RN and Firebase modules
+    "node_modules/(?!(react-native|@react-native|@react-native-firebase|react-navigation|expo|@react-native-community)/)",
   ],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   testMatch: [
