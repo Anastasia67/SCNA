@@ -37,9 +37,12 @@ jobs:
       - name: Clear Jest Cache
         run: npx jest --clearCache
 
+      - name: Install Babel CLI
+        run: npm install --save-dev @babel/cli
+      
       - name: Check Babel Configuration
         run: |
-          npx cross-env BABEL_SHOW_CONFIG_FOR=frontend/SCNA/_test_/auth.test.js babel --version
+          npx cross-env BABEL_SHOW_CONFIG_FOR=frontend/SCNA/_test_/auth.test.js npx babel --version
 
       - name: Run Firebase Authentication Tests
         run: |
