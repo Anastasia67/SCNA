@@ -1,57 +1,93 @@
-//auth.js
-import { render, fireEvent } from "@testing-library/react-native";
 import React from "react";
-import { Text, Button } from "react-native";
-import auth from "@react-native-firebase/auth";
+import { render, fireEvent, waitFor } from "@testing-library/react-native";
+import LoginScreen from "../LoginScreen";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig";
 
-// Mocked component example
-const LoginComponent = () => {
-  const handleLogin = async () => {
-    try {
-      const userCredential = await auth().signInWithEmailAndPassword(
+beforeAll(() => {
+  jest.spyOn(console, "error").mockImplementation(() => {});
+  jest.spyOn(console, "log").mockImplementation(() => {});
+});
+
+afterAll(() => {
+  console.error.mockRestore();
+  console.log.mockRestore();
+});
+
+// Mock Firebase Authentication
+jest.mock("firebase/auth", () => ({
+  signInWithEmailAndPassword: jest.fn(),
+}));
+
+jest.mock("../firebaseConfig", () => ({
+  auth: {},
+}));
+
+describe("LoginScreen Tests", () => {
+  it("logs in a user with correct credentials", async () => {
+    // Mock successful login response
+    signInWithEmailAndPassword.mockResolvedValue({
+      user: {
+        uid: "mock-uid",
+        email: "test@example.com",
+      },
+    });
+
+    const mockNavigation = { navigate: jest.fn() };
+
+    const { getByPlaceholderText, getByText } = render(
+      <LoginScreen navigation={mockNavigation} />
+    );
+
+    // Fill in email and password fields
+    fireEvent.changeText(getByPlaceholderText("E-mail"), "test@example.com");
+    fireEvent.changeText(getByPlaceholderText("Password"), "password123");
+
+    // Press the login button
+    fireEvent.press(getByText("Sign in"));
+
+    await waitFor(() => {
+      expect(signInWithEmailAndPassword).toHaveBeenCalledWith(
+        auth,
         "test@example.com",
         "password123"
       );
-      console.log("User:", userCredential.user.email);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
-  return (
-    <>
-      <Button title="Login" onPress={handleLogin} />
-      <Text>Login Component</Text>
-    </>
-  );
-};
-
-// Test
-describe("Firebase Authentication", () => {
-  it("logs in a user with correct credentials", async () => {
-    const { getByText } = render(<LoginComponent />);
-
-    const loginButton = getByText("Login");
-
-    await fireEvent.press(loginButton);
-
-    expect(auth().signInWithEmailAndPassword).toHaveBeenCalledWith(
-      "test@example.com",
-      "password123"
-    );
+      expect(mockNavigation.navigate).toHaveBeenCalledWith("Map", {
+        user: {
+          uid: "mock-uid",
+          email: "test@example.com",
+          displayName: undefined,
+          photoURL: undefined,
+        },
+      });
+    });
   });
 
   it("handles invalid login credentials", async () => {
-    auth().signInWithEmailAndPassword.mockRejectedValue(
+    // Mock rejected login
+    signInWithEmailAndPassword.mockRejectedValue(
       new Error("Invalid credentials")
     );
 
-    const { getByText } = render(<LoginComponent />);
+    const mockNavigation = { navigate: jest.fn() };
 
-    const loginButton = getByText("Login");
+    const { getByPlaceholderText, getByText } = render(
+      <LoginScreen navigation={mockNavigation} />
+    );
 
-    await fireEvent.press(loginButton);
+    // Fill in email and password fields
+    fireEvent.changeText(getByPlaceholderText("E-mail"), "wrong@example.com");
+    fireEvent.changeText(getByPlaceholderText("Password"), "wrongpassword");
 
-    expect(auth().signInWithEmailAndPassword).toHaveBeenCalled();
+    // Press the login button
+    fireEvent.press(getByText("Sign in"));
+
+    await waitFor(() => {
+      expect(signInWithEmailAndPassword).toHaveBeenCalledWith(
+        auth,
+        "wrong@example.com",
+        "wrongpassword"
+      );
+    });
   });
 });

@@ -18,8 +18,5 @@ module.exports = {
   testMatch: [
     "<rootDir>/_test_/**/*.(spec|test).[jt]s?(x)", // Look for tests in `_test_`
   ],
-  moduleNameMapper: {
-    "@react-native-firebase/auth":
-      "<rootDir>/_mocks_/@react-native-firebase/auth.js",
-  },
+  // moduleNameMapper: {}, in case of central mock
 };
