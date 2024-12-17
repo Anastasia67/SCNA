@@ -45,7 +45,7 @@ jobs:
 
   test-all-unit-tests:
     runs-on: ubuntu-latest
-    needs: test-firebase-auth # Run only after Firebase tests succeed
+    needs: test-firebase-auth
 
     steps:
       - name: Checkout Repository
