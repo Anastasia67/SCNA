@@ -1,7 +1,8 @@
+//jest.config.js
 module.exports = {
   preset: "react-native",
   transform: {
-    "^.+\\.[jt]sx?$": "babel-jest", // Transpile JavaScript and TypeScript
+    "^.+\\.[jt]sx?$": "babel-jest", // Transpile JS, JSX, TS, and TSX using Babel
   },
   collectCoverage: true,
   coverageDirectory: "../coverage",
@@ -13,11 +14,10 @@ module.exports = {
     "!**/coverage/**",
   ],
   transformIgnorePatterns: [
-    "node_modules/(?!(react-native|@react-native|@react-native-firebase)/)", // Ensure Firebase is transformed
+    "node_modules/(?!(react-native|@react-native|@react-native-firebase)/)", // Transform RN and Firebase modules
   ],
   moduleFileExtensions: ["js", "jsx", "ts", "tsx", "json", "node"],
   testMatch: [
     "<rootDir>/_test_/**/*.(spec|test).[jt]s?(x)", // Look for tests in `_test_`
   ],
-  // moduleNameMapper: {}, in case of central mock
 };

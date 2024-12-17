@@ -1,3 +1,4 @@
+// babel.config.js
 module.exports = function (api) {
   api.cache(true);
   return {
@@ -5,10 +6,11 @@ module.exports = function (api) {
       [
         "module:metro-react-native-babel-preset",
         {
-          useTransformReactJSXExperimental: true, // Correct geplaatst als optie binnen de preset
+          useTransformReactJSXExperimental: true,
         },
       ],
       "babel-preset-expo",
+      "@babel/preset-react", // Add this to handle JSX
     ],
   };
 };
