@@ -11,6 +11,15 @@ const authMock = {
       return Promise.reject(new Error("Invalid credentials"));
     }
   }),
+  createUserWithEmailAndPassword: jest.fn((email) => {
+    return Promise.resolve({
+      user: {
+        uid: "new-user-id",
+        email: email,
+      },
+    });
+  }),
+  signOut: jest.fn(() => Promise.resolve()),
 };
 
 export default () => authMock;

@@ -17,6 +17,6 @@ module.exports = {
   ],
   moduleNameMapper: {
     "@react-native-firebase/auth":
-      "<rootDir>/__mocks__/@react-native-firebase/auth.js",
+      "<rootDir>/_mocks_/@react-native-firebase/auth.js",
   },
 };
