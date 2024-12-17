@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Clear Node Modules and Cache
+      - name: Clean Cache and Install Dependencies
         run: |
           rm -rf node_modules
           npm cache clean --force
@@ -37,9 +37,11 @@ jobs:
           nohup firebase emulators:start --only auth > /dev/null &
           sleep 5
 
-      - name: Debug Babel Configuration
-        run: |
-          npx cross-env BABEL_SHOW_CONFIG_FOR=frontend/SCNA/_test_/auth.test.js npx babel --show-config
+      - name: Install Babel CLI
+        run: npm install --save-dev @babel/cli @babel/core @babel/preset-env @babel/preset-react babel-jest
+
+      - name: Verify Babel CLI Installation
+        run: npx babel --version
 
       - name: Clear Jest Cache
         run: npx jest --clearCache
