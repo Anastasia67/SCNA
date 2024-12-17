@@ -12,6 +12,9 @@ module.exports = {
     "!**/node_modules/**",
     "!**/coverage/**",
   ],
+  transformIgnorePatterns: [
+    "node_modules/(?!(react-native|react|@react-native|@react-native-firebase)/)",
+  ],
   testMatch: [
     "<rootDir>/_test_/**/*.(spec|test).[jt]s?(x)", // Look for tests in `_test_`
   ],
