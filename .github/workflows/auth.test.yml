@@ -37,6 +37,10 @@ jobs:
       - name: Clear Jest Cache
         run: npx jest --clearCache
 
+      - name: Check Babel Configuration
+        run: |
+          npx cross-env BABEL_SHOW_CONFIG_FOR=frontend/SCNA/_test_/auth.test.js babel --version
+
       - name: Run Firebase Authentication Tests
         run: |
           echo "$FIREBASE_CREDENTIALS" > firebase-credentials.json
