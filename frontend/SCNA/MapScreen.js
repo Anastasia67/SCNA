@@ -14,8 +14,8 @@ const MapScreen = () => {
   const [region, setRegion] = useState(null);
   const [userLocation, setUserLocation] = useState(null);
   const [destination, setDestination] = useState({
-    latitude: 52.379189,
-    longitude: 4.899431,
+    latitude: 52.500052,
+    longitude: 6.084516,
   });
   const [routeCoords, setRouteCoords] = useState([]);
   const [showSplashScreen, setShowSplashScreen] = useState(true);
