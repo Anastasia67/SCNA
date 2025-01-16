@@ -6,7 +6,6 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  Alert,
   Image,
   Linking,
 } from "react-native";
@@ -16,6 +15,7 @@ import { auth } from "./firebaseConfig"; // Import Firebase Authentication
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Voeg een foutmeldingsstatus toe
 
   const handleLogin = async () => {
     try {
@@ -36,9 +36,11 @@ const LoginScreen = ({ navigation }) => {
           photoURL: user.photoURL,
         },
       });
+
+      setErrorMessage(""); // Reset de foutmelding bij succes
     } catch (error) {
       console.error("Login error:", error);
-      Alert.alert("Login Failed", error.message);
+      setErrorMessage(error.message); // Stel de foutmelding in
     }
   };
 
@@ -67,6 +69,14 @@ const LoginScreen = ({ navigation }) => {
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
           <Text style={styles.loginButtonText}>Sign in</Text>
         </TouchableOpacity>
+
+        {/* Toon de foutmelding indien aanwezig */}
+        {errorMessage ? (
+          <Text style={styles.errorText} testID="error-message">
+            {errorMessage}
+          </Text>
+        ) : null}
+
         <Text style={styles.helperText}>
           Sign in with your Windesheim account:
         </Text>
@@ -107,22 +117,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#f5f5f5",
   },
-  header: {
-    backgroundColor: "#4CAF50",
-    padding: 20,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  backButton: {
-    color: "white",
-    fontSize: 16,
-    marginRight: 10,
-  },
-  headerTitle: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
   formContainer: {
     flex: 1,
     padding: 20,
@@ -157,6 +151,12 @@ const styles = StyleSheet.create({
   loginButtonText: {
     color: "black",
     fontSize: 16,
+    textAlign: "center",
+  },
+  errorText: {
+    color: "red",
+    fontSize: 14,
+    marginTop: 10,
     textAlign: "center",
   },
   helperText: {
