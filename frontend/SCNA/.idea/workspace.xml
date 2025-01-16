@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3816c053-192d-4642-8372-7d4c94030c05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainNavigatieBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/MainNavigatieBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MapScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/MapScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/LoginScreen.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/LoginScreen.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/MainNavigatieBar.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/MainNavigatieBar.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/NavigatieBar.js.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/NavigatieBar.js.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/assets/Windesheim_logo+pay-off_ZG_RGB-DEF.png.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/assets/Windesheim_logo+pay-off_ZG_RGB-DEF.png.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/assets/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/SCNA/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov-report/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov-report/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coverage/lcov.info" beforeDir="false" afterPath="$PROJECT_DIR$/../coverage/lcov.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

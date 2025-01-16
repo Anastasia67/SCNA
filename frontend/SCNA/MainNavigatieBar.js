@@ -1,4 +1,4 @@
-// NavigatieBar.js
+// MainNavigatieBar.js
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
@@ -10,16 +10,11 @@ const NavigationBar = () => {
     const currentRoute =
       navigation.getState().routes[navigation.getState().index].name;
 
-    // Only navigate if we're not already on the target screen.
     if (currentRoute !== route) {
+      // Gebruik replace alleen als de route expliciet voorkomt in specifieke gevallen
       if (
-        (currentRoute === "Instellingen" && route === "Route") ||
-        (currentRoute === "Meer" && route === "Route") ||
-        (currentRoute === "Route" && route === "Meer") ||
-        (currentRoute === "Rooster" && route === "Meer") ||
-        (currentRoute === "Meer" && route === "Rooster") ||
-        (currentRoute === "Route" && route === "Rooster") ||
-        (currentRoute === "Rooster" && route === "Route")
+        ["Instellingen", "Meer", "Route", "Rooster"].includes(currentRoute) &&
+        ["Instellingen", "Meer", "Route", "Rooster"].includes(route)
       ) {
         navigation.replace(route);
       } else {

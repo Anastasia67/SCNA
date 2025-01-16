@@ -1,0 +1,35 @@
+name: CI - Bezoeker Navbar Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-bezoeker-navbar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install Dependencies
+        run: |
+          cd frontend/SCNA
+          npm install
+
+      - name: Clear Jest Cache
+        run: |
+          cd frontend/SCNA
+          npx jest --clearCache
+
+      - name: Run Bezoeker Navbar Tests
+        run: |
+          cd frontend/SCNA
+          npx jest --ci --config jest.config.js --testPathPattern "bezoeker_navbar.test.js"
